@@ -16,6 +16,6 @@
 
 <div align="center">
 
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/KernelErr0r/Salem?style=for-the-badge)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/KernelErr0r/Salem/master?style=for-the-badge)
 
 </div>
