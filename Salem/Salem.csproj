@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Simple .net logging library</Description>
+    <Authors>KernelError</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>https://github.com/KernelErr0r/Salem/blob/master/LICENSE</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/KernelErr0r/Salem</RepositoryUrl>
+    <Company />
+    <PackageTags>.net logging library</PackageTags>
+    <RepositoryType></RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
