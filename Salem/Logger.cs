@@ -27,6 +27,12 @@ namespace Salem
             new LogLevel("Awaiting", "[%]", Color.DeepSkyBlue)
         };
 
+        public List<Color> Colors { get; } = new List<Color>()
+        {
+            Color.Gray,
+            Color.LightGray
+        };
+
         private static object lck = new object();
 
         public Logger(string scope)
@@ -136,16 +142,16 @@ namespace Salem
             if (string.IsNullOrWhiteSpace(_scope))
             {
                 if (_logLevel != null)
-                    message = $"{_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } { content.Pastel(Color.LightGray) }";
+                    message = $"{_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } { content.Pastel(Colors[1]) }";
                 else
-                    message = $"{"".Expand(BiggestLength + 2)} { content.Pastel(Color.Gray) }";
+                    message = $"{"".Expand(BiggestLength + 2)} { content.Pastel(Colors[1]) }";
             }
             else
             {
                 if (_logLevel != null)
-                    message = $"[{_scope}]".Pastel(Color.Gray) + $" {_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } { content.Pastel(Color.LightGray) }";
+                    message = $"[{_scope}]".Pastel(Colors[0]) + $" {_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } { content.Pastel(Colors[1]) }";
                 else
-                    message = $"[{_scope}]".Pastel(Color.Gray) + $" {"".Expand(BiggestLength + 2)} { content.Pastel(Color.LightGray) }";
+                    message = $"[{_scope}]".Pastel(Colors[0]) + $" {"".Expand(BiggestLength + 2)} { content.Pastel(Colors[1]) }";
             }
 
             foreach (var output in Outputs)
