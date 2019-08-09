@@ -35,7 +35,7 @@ namespace Salem
 
         private static object lck = new object();
 
-        public Logger(string scope)
+        public Logger(string scope = "")
         {
             Scope = scope;
 
