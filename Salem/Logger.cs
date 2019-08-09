@@ -136,14 +136,14 @@ namespace Salem
             if (string.IsNullOrWhiteSpace(_scope))
             {
                 if (_logLevel != null)
-                    message = $"{_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name.Expand(BiggestLength)).Pastel(_logLevel.Color)} {content.Pastel(Color.LightGray) }";
+                    message = $"{_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } { content.Pastel(Color.LightGray) }";
                 else
                     message = $"{"".Expand(BiggestLength + 2)} { content.Pastel(Color.Gray) }";
             }
             else
             {
                 if (_logLevel != null)
-                    message = $"[{_scope}]".Pastel(Color.Gray) + $" {_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } {content.Pastel(Color.LightGray)}";
+                    message = $"[{_scope}]".Pastel(Color.Gray) + $" {_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } { content.Pastel(Color.LightGray) }";
                 else
                     message = $"[{_scope}]".Pastel(Color.Gray) + $" {"".Expand(BiggestLength + 2)} { content.Pastel(Color.LightGray) }";
             }
