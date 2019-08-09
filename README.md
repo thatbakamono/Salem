@@ -35,7 +35,7 @@
 
 ## Usage
 
-### Default settings
+### Simplest usage
 
 ```csharp
 using Salem;
@@ -60,7 +60,7 @@ logger.Log("Error", "World is going to be destroyed by the aliens");
 using Salem;
 using System.Collections.Generic;
 
-var logger = new Logger("");
+var logger = new Logger();
 var list = new List<string>() { "one", "two", "three" };
 
 logger.Log("info", list);
@@ -72,7 +72,7 @@ logger.Log("info", list);
 using Salem;
 using System.Collections.Generic;
 
-var logger = new Logger("");
+var logger = new Logger();
 var dict = new Dictionary<string, string>() { { "1", "first" }, { "2", "second" }, { "3", "third" } };
 
 logger.Log("info", dict);
