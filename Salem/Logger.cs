@@ -13,6 +13,7 @@ namespace Salem
     public class Logger : ILogger
     {
         public string Scope { get; set; }
+        public int BiggestLength { get; } = 0;
 
         public List<IOutput> Outputs { get; } = new List<IOutput>() { new ConsoleOutput() };
         public List<IFormatter> Formatters { get; } = new List<IFormatter>();
@@ -28,8 +29,6 @@ namespace Salem
 
         private static object lck = new object();
 
-        private int biggestLength = 0;
-
         public Logger(string scope)
         {
             Scope = scope;
@@ -40,8 +39,8 @@ namespace Salem
 
             foreach (var logLevel in LogLevels)
             {
-                if (biggestLength < logLevel.Name.Length)
-                    biggestLength = logLevel.Name.Length;
+                if (BiggestLength < logLevel.Name.Length)
+                    BiggestLength = logLevel.Name.Length;
             }
         }
 
@@ -137,16 +136,16 @@ namespace Salem
             if (string.IsNullOrWhiteSpace(_scope))
             {
                 if (_logLevel != null)
-                    message = $"{_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name.Expand(biggestLength)).Pastel(_logLevel.Color)} {content.Pastel(Color.LightGray) }";
+                    message = $"{_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name.Expand(BiggestLength)).Pastel(_logLevel.Color)} {content.Pastel(Color.LightGray) }";
                 else
-                    message = $"{"".Expand(biggestLength + 2)} { content.Pastel(Color.Gray) }";
+                    message = $"{"".Expand(BiggestLength + 2)} { content.Pastel(Color.Gray) }";
             }
             else
             {
                 if (_logLevel != null)
-                    message = $"[{_scope}]".Pastel(Color.Gray) + $" {_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(biggestLength) } {content.Pastel(Color.LightGray)}";
+                    message = $"[{_scope}]".Pastel(Color.Gray) + $" {_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } {content.Pastel(Color.LightGray)}";
                 else
-                    message = $"[{_scope}]".Pastel(Color.Gray) + $" {"".Expand(biggestLength + 2)} { content.Pastel(Color.LightGray) }";
+                    message = $"[{_scope}]".Pastel(Color.Gray) + $" {"".Expand(BiggestLength + 2)} { content.Pastel(Color.LightGray) }";
             }
 
             foreach (var output in Outputs)
