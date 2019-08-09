@@ -51,3 +51,57 @@ logger.Log("Error", "World is going to be destroyed by the aliens");
 ```
 
 ![Screenshot](Assets/screenshot1.png)
+
+### Formatters
+
+#### Without scope
+
+```csharp
+using Salem;
+using System.Collections.Generic;
+
+var logger = new Logger("");
+var list = new List<string>() { "one", "two", "three" };
+
+logger.Log("info", list);
+```
+
+![Screenshot](Assets/screenshot2.png)
+
+```csharp
+using Salem;
+using System.Collections.Generic;
+
+var logger = new Logger("");
+var dict = new Dictionary<string, string>() { { "1", "first" }, { "2", "second" }, { "3", "third" } };
+
+logger.Log("info", dict);
+```
+
+![Screenshot](Assets/screenshot4.png)
+
+#### With scope
+
+```csharp
+using Salem;
+using System.Collections.Generic;
+
+var logger = new Logger("Scope");
+var list = new List<string>() { "one", "two", "three" };
+
+logger.Log("info", list);
+```
+
+![Screenshot](Assets/screenshot3.png)
+
+```csharp
+using Salem;
+using System.Collections.Generic;
+
+var logger = new Logger("Scope");
+var dict = new Dictionary<string, string>() { { "1", "first" }, { "2", "second" }, { "3", "third" } };
+
+logger.Log("info", dict);
+```
+
+![Screenshot](Assets/screenshot5.png)
