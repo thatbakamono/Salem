@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salem", "Salem\Salem.csproj", "{DBE29CBF-EEDB-474E-BA4E-AA4388FDDD1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salem", "Salem\Salem.csproj", "{DBE29CBF-EEDB-474E-BA4E-AA4388FDDD1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salem.Tests", "Salem.Tests\Salem.Tests.csproj", "{1B33081D-9E21-44AD-A46F-ED4443FF6D6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DBE29CBF-EEDB-474E-BA4E-AA4388FDDD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBE29CBF-EEDB-474E-BA4E-AA4388FDDD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBE29CBF-EEDB-474E-BA4E-AA4388FDDD1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B33081D-9E21-44AD-A46F-ED4443FF6D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B33081D-9E21-44AD-A46F-ED4443FF6D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B33081D-9E21-44AD-A46F-ED4443FF6D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B33081D-9E21-44AD-A46F-ED4443FF6D6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
