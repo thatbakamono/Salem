@@ -80,7 +80,10 @@ logger.Log("info", dict);
 
 ![Screenshot](Assets/screenshot4.png)
 
-#### With a scope
+
+<details>
+
+<summary>With a scope</summary>
 
 ```csharp
 using Salem;
@@ -105,3 +108,5 @@ logger.Log("info", dict);
 ```
 
 ![Screenshot](Assets/screenshot5.png)
+	
+</details>
