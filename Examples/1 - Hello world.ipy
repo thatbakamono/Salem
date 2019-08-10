@@ -1,0 +1,9 @@
+import clr
+clr.AddReference("Salem")
+clr.AddReference("System")
+from Salem import Logger
+from System import Console
+
+logger = Logger()
+logger.Log("Info", "Hello World!")
+Console.ReadKey()
