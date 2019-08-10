@@ -54,7 +54,11 @@ logger.Log("Error", "World is going to be destroyed by the aliens");
 
 ### Formatters
 
-#### Without a scope
+#### Lists and dictionaries
+
+<details>
+
+<summary>Without a scope</summary>
 
 ```csharp
 using Salem;
@@ -80,6 +84,7 @@ logger.Log("info", dict);
 
 ![Screenshot](Assets/screenshot4.png)
 
+</details>
 
 <details>
 
