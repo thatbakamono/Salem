@@ -1,0 +1,6 @@
+using Salem;
+using System;
+
+def logger = Logger();
+logger.Log("Info", "Hello World!");
+Console.ReadKey();
