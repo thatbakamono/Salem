@@ -9,6 +9,8 @@ namespace Salem
     public interface ILogger
     {
         string Scope { get; set; }
+        string TimeStampsFormat { get; set; }
+        bool TimeStamps { get; set; }
         List<IOutput> Outputs { get; }
         List<IFormatter> Formatters { get; }
         List<LogLevel> LogLevels { get; }
