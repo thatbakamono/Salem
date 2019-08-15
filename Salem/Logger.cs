@@ -7,12 +7,15 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace Salem
 {
     public class Logger : ILogger
     {
         public string Scope { get; set; }
+        public string TimeStampsFormat { get; set; } = "T";
+        public bool TimeStamps { get; set; } = false;
         public int BiggestLength { get; } = 0;
 
         public List<IOutput> Outputs { get; } = new List<IOutput>() { new ConsoleOutput() };
@@ -137,22 +140,23 @@ namespace Salem
         {
             var _scope = string.IsNullOrWhiteSpace(scope) ? Scope : scope;
             var _logLevel = string.IsNullOrWhiteSpace(logLevel) ? null : LogLevels.FirstOrDefault(n => n.Name.ToLower() == logLevel.ToLower());
-            var message = "";
 
-            if (string.IsNullOrWhiteSpace(_scope))
-            {
-                if (_logLevel != null)
-                    message = $"{_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } { content.Pastel(Colors[1]) }";
-                else
-                    message = $"{"".Expand(BiggestLength + 2)} { content.Pastel(Colors[1]) }";
-            }
+            var builder = new StringBuilder();
+
+            if (TimeStamps)
+                builder.Append($"{DateTime.Now.ToString(TimeStampsFormat).Pastel(_logLevel.Color)} ");
+
+            if (!string.IsNullOrWhiteSpace(_scope))
+                builder.Append($"[{_scope}]".Pastel(Colors[0]) + " ");
+
+            if (_logLevel != null) 
+                builder.Append($"{ _logLevel.Icon.Pastel(_logLevel.Color) } { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } ");
             else
-            {
-                if (_logLevel != null)
-                    message = $"[{_scope}]".Pastel(Colors[0]) + $" {_logLevel.Icon.Pastel(_logLevel.Color)} { Ansi.Underline(_logLevel.Name).Pastel(_logLevel.Color).Expand(BiggestLength) } { content.Pastel(Colors[1]) }";
-                else
-                    message = $"[{_scope}]".Pastel(Colors[0]) + $" {"".Expand(BiggestLength + 2)} { content.Pastel(Colors[1]) }";
-            }
+                builder.Append("".Expand(BiggestLength + 3));
+
+            builder.Append(content.Pastel(Colors[1]));
+
+            var message = builder.ToString();
 
             foreach (var output in Outputs)
                 output.WriteLine(message);
