@@ -136,7 +136,7 @@ namespace Salem
             });
         }
 
-        internal void InternalLog(string logLevel, string content, string scope = "")
+        protected virtual void InternalLog(string logLevel, string content, string scope = "")
         {
             var _scope = string.IsNullOrWhiteSpace(scope) ? Scope : scope;
             var _logLevel = string.IsNullOrWhiteSpace(logLevel) ? null : LogLevels.FirstOrDefault(n => n.Name.ToLower() == logLevel.ToLower());
