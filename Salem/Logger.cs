@@ -14,9 +14,9 @@ namespace Salem
     public class Logger : ILogger
     {
         public string Scope { get; set; }
-        public string TimeStampsFormat { get; set; } = "T";
+        public string TimeStampFormat { get; set; } = "T";
         public bool TimeStamps { get; set; } = false;
-        public int BiggestLength { get; } = 0;
+        public int BiggestLength { get; }
 
         public List<IOutput> Outputs { get; } = new List<IOutput>() { new ConsoleOutput() };
         public List<IFormatter> Formatters { get; } = new List<IFormatter>();
@@ -29,7 +29,6 @@ namespace Salem
             new LogLevel("Stacktrace", "[o]", Color.FromArgb(248, 250, 107)),
             new LogLevel("Awaiting", "[%]", Color.DeepSkyBlue)
         };
-
         public List<Color> Colors { get; } = new List<Color>()
         {
             Color.Gray,
@@ -47,10 +46,8 @@ namespace Salem
             Formatters.Add(new IDictionaryFormatter(this));
 
             foreach (var logLevel in LogLevels)
-            {
                 if (BiggestLength < logLevel.Name.Length)
                     BiggestLength = logLevel.Name.Length;
-            }
         }
 
         public void Log(string loglevel, string content, string scope = "")
@@ -85,16 +82,14 @@ namespace Salem
 
                                 return;
                             }
-                            else
+                            
+                            foreach (var inputInterface in inputInterfaces)
                             {
-                                foreach (var inputInterface in inputInterfaces)
+                                if (genericArgument == inputInterface)
                                 {
-                                    if (genericArgument == inputInterface)
-                                    {
-                                        formatter.Format(loglevel, input);
-
-                                        return;
-                                    }
+                                    formatter.Format(loglevel, input);
+                                       
+                                    return;
                                 }
                             }
                         }
@@ -144,7 +139,7 @@ namespace Salem
             var builder = new StringBuilder();
 
             if (TimeStamps)
-                builder.Append($"{DateTime.Now.ToString(TimeStampsFormat).Pastel(_logLevel.Color)} ");
+                builder.Append($"{DateTime.Now.ToString(TimeStampFormat).Pastel(_logLevel.Color)} ");
 
             if (!string.IsNullOrWhiteSpace(_scope))
                 builder.Append($"[{_scope}]".Pastel(Colors[0]) + " ");
