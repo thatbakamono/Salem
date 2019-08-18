@@ -3,11 +3,12 @@ using System.Collections.Generic;
 
 namespace Salem.Formatters
 {
-    public class IDictionaryFormatter : IFormatter<IDictionary>
+    [Formatter(typeof(IDictionary))]
+    public class DictionaryFormatter : IFormatter
     {
         private ILogger _logger;
 
-        public IDictionaryFormatter(ILogger logger)
+        public DictionaryFormatter(ILogger logger)
         {
             _logger = logger; ;
         }

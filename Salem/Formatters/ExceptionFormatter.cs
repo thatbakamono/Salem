@@ -5,7 +5,8 @@ using System.Drawing;
 
 namespace Salem.Formatters
 {
-    public class ExceptionFormatter : IFormatter<Exception>
+    [Formatter(typeof(Exception))]
+    public class ExceptionFormatter : IFormatter
     {
         private static object _exceptionLock = new object();
         private ILogger _logger;

@@ -42,8 +42,8 @@ namespace Salem
             Scope = scope;
 
             Formatters.Add(new ExceptionFormatter(this));
-            Formatters.Add(new IListFormatter(this));
-            Formatters.Add(new IDictionaryFormatter(this));
+            Formatters.Add(new ListFormatter(this));
+            Formatters.Add(new DictionaryFormatter(this));
 
             foreach (var logLevel in LogLevels)
                 if (BiggestLength < logLevel.Name.Length)
@@ -68,27 +68,25 @@ namespace Salem
                 foreach (var formatter in Formatters)
                 {
                     var formatterType = formatter.GetType();
-                    var interfaces = formatterType.GetInterfaces();
+                    var attributes = formatterType.GetCustomAttributes(true);
 
-                    foreach (var interfac in interfaces)
+                    foreach (var attribute in attributes)
                     {
-                        if (interfac.IsGenericType)
+                        if (attribute is Formatter formatterAttribute)
                         {
-                            var genericArgument = interfac.GetGenericArguments()[0];
-
-                            if (genericArgument == inputType)
+                            if (formatterAttribute.Type == inputType)
                             {
                                 formatter.Format(loglevel, input);
 
                                 return;
                             }
-                            
-                            foreach (var inputInterface in inputInterfaces)
+
+                            foreach (var interfac in inputInterfaces)
                             {
-                                if (genericArgument == inputInterface)
+                                if (formatterAttribute.Type == interfac)
                                 {
                                     formatter.Format(loglevel, input);
-                                       
+
                                     return;
                                 }
                             }
