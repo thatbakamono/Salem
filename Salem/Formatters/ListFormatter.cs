@@ -2,11 +2,12 @@
 
 namespace Salem.Formatters
 {
-    public class IListFormatter : IFormatter<IList>
+    [Formatter(typeof(IList))]
+    public class ListFormatter : IFormatter
     {
         private ILogger _logger;
 
-        public IListFormatter(ILogger logger)
+        public ListFormatter(ILogger logger)
         {
             _logger = logger;
         }

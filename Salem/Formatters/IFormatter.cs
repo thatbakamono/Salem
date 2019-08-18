@@ -4,6 +4,4 @@
     {
         void Format(string loglevel, object input);
     }
-
-    public interface IFormatter<T> : IFormatter { }
 }
