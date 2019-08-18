@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace Salem.Tests
 {
-    public class IDictionaryFormatterTests
+    public class DictionaryFormatterTests
     {
         [Fact]
-        public void Test1()
+        public void TestFormatterWithoutScope()
         {
-            var logger = new Logger("");
+            var logger = new Logger();
             var output = new SyntheticOutput();
             var dictionary = new Dictionary<string, string> { { "1", "first" }, { "2", "second" } };
 
@@ -24,7 +24,7 @@ namespace Salem.Tests
         }
 
         [Fact]
-        public void Test2()
+        public void TestFormatterWithScope()
         {
             var logger = new Logger("scope");
             var output = new SyntheticOutput();
