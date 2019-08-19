@@ -10,6 +10,7 @@
     <Company />
     <PackageTags>.net logging library</PackageTags>
     <RepositoryType></RepositoryType>
+    <PackageVersion>1.0.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
