@@ -1,7 +1,10 @@
 language: csharp
 mono: none
 dotnet: 2.0.0
-script:
+
+install:
   - dotnet restore
-  - msbuild /p:Configuration=Release Salem.sln
-  - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./Salem.Tests/bin/Release/netcoreapp2.0/Salem.Tests.dll
+
+script:
+  - dotnet build
+  - dotnet test Salem.Tests/Salem.Tests.csproj
