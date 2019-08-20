@@ -13,6 +13,7 @@
 
 ![Nuget](https://img.shields.io/nuget/v/Salem?style=for-the-badge)
 ![Travis (.org)](https://img.shields.io/travis/KernelErr0r/Salem?style=for-the-badge)
+![Azure DevOps tests](https://img.shields.io/azure-devops/tests/villainkernelerror/salem/1?style=for-the-badge)
 
 </div>
 
