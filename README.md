@@ -5,23 +5,22 @@
 <h5>(more about the supported platforms below)</h5>
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c-sharp.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
 </div>
 
 <div align="center">
 
 ![Nuget](https://img.shields.io/nuget/v/Salem?style=for-the-badge)
-![Travis (.org)](https://img.shields.io/travis/KernelErr0r/Salem?style=for-the-badge)
-![Azure DevOps tests](https://img.shields.io/azure-devops/tests/villainkernelerror/salem/1?style=for-the-badge)
 
 </div>
 
-<div align="center">
+## Status:
 
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/KernelErr0r/Salem/master?style=for-the-badge)
-
-</div>
+| Branch | Build | Tests | Code Quality |
+|--------|-------|-------|--------------|
+| Master | ![Travis (.org) master](https://img.shields.io/travis/KernelErr0r/Salem/master?style=for-the-badge) | ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/villainkernelerror/salem/1?style=for-the-badge) | ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/KernelErr0r/Salem/master?style=for-the-badge) |
+|  Dev   | ![Travis (.org) dev](https://img.shields.io/travis/KernelErr0r/Salem/dev?style=for-the-badge)       | | ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/KernelErr0r/Salem/dev?style=for-the-badge)    |
 
 ## Supported platforms:
 
@@ -36,12 +35,12 @@
 
 ## Usage
 
-### Simplest usage
+### The simplest usage
 
 ```csharp
 using Salem;
 
-var logger = new Logger("");
+var logger = new Logger();
 
 //The first parameter - log level (for example: info, warning or error) (Not case-sensitive)
 //The second parameter - our message (string or any object)
