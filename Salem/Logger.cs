@@ -128,11 +128,11 @@ namespace Salem
                 }
             });
         }
-
-        protected virtual void InternalLog(string logLevel, string content, string scope = "")
+        
+        protected virtual string FormatLog(string logLevel, string content, string scope = "")
         {
             var _scope = string.IsNullOrWhiteSpace(scope) ? Scope : scope;
-            var _logLevel = string.IsNullOrWhiteSpace(logLevel) ? null : LogLevels.FirstOrDefault(n => n.Name.ToLower() == logLevel.ToLower());
+            var _logLevel = string.IsNullOrWhiteSpace(logLevel) ? null : LogLevels.FirstOrDefault(n => String.Equals(n.Name, logLevel, StringComparison.CurrentCultureIgnoreCase));
 
             var builder = new StringBuilder();
 
@@ -149,7 +149,12 @@ namespace Salem
 
             builder.Append(content.Pastel(Colors[1]));
 
-            var message = builder.ToString();
+            return builder.ToString();
+        }
+
+        private void InternalLog(string logLevel, string content, string scope = "")
+        {
+            var message = FormatLog(logLevel, content, scope);
 
             foreach (var output in Outputs)
                 output.WriteLine(message);
