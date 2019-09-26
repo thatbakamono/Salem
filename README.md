@@ -11,7 +11,7 @@
 
 <div align="center">
 
-![Nuget](https://img.shields.io/nuget/v/Salem?style=for-the-badge)
+![Nuget](https://img.shields.io/nuget/v/Salem?style=for-the-badge&logo=nuget)
 
 </div>
 
@@ -19,8 +19,8 @@
 
 | Branch | Build | Tests | Code Quality |
 |--------|-------|-------|--------------|
-| Master | ![Travis (.org) master](https://img.shields.io/travis/KernelErr0r/Salem/master?style=for-the-badge) | ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/villainkernelerror/salem/1?style=for-the-badge) | ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/KernelErr0r/Salem/master?style=for-the-badge) |
-|  Dev   | ![Travis (.org) dev](https://img.shields.io/travis/KernelErr0r/Salem/dev?style=for-the-badge)       | | ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/KernelErr0r/Salem/dev?style=for-the-badge)    |
+| Master | ![Travis (.org) master](https://img.shields.io/travis/KernelErr0r/Salem/master?style=for-the-badge&logo=travis) | ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/villainkernelerror/salem/1?style=for-the-badge&logo=azuredevops) | ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/KernelErr0r/Salem/master?style=for-the-badge) |
+|  Dev   | ![Travis (.org) dev](https://img.shields.io/travis/KernelErr0r/Salem/dev?style=for-the-badge&logo=travis)       | | ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/KernelErr0r/Salem/dev?style=for-the-badge)    |
 
 ## Supported platforms:
 
@@ -31,7 +31,7 @@
 * Xamarin.Mac 3.8 and above
 * Xamarin.Android 8.0 and above
 * UWP 10.0.16299 and above
-* Unity 2018.1 and above
+* <img width="24" height="24" align="center" src="http://simpleicons.org/icons/unity.svg"> 2018.1 and above
 
 ## Usage
 
