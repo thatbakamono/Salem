@@ -2,6 +2,7 @@
 using Salem.Outputs;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Threading.Tasks;
 
 namespace Salem
@@ -14,6 +15,7 @@ namespace Salem
         List<IOutput> Outputs { get; }
         List<IFormatter> Formatters { get; }
         List<LogLevel> LogLevels { get; }
+        List<Color> Colors { get; }
 
         void Log(string logLevel, string content, string scope = "");
         void Log(string logLevel, object content, string scope = "");
