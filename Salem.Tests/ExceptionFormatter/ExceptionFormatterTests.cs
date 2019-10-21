@@ -56,14 +56,4 @@ namespace Salem.Tests
             Assert.Contains("This is a Test - Fake Exception!", output.Lines[0]);
         }
     }
-
-    public class MyTestClass
-    {
-        public MyTestSubClass SubClass { get; set; }
-    }
-
-    public class MyTestSubClass
-    {
-        public string Name { get; set; }
-    }
 }
